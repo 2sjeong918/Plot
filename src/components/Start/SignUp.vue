@@ -78,13 +78,14 @@
       @click="signUp">가입하기</button>
       <!-- <a href class="signup-link" @click.prevent="termAll" v-else>가입하기</a>  -->
       <a href class="signin-link" @click.prevent="signinLink">로그인</a>
-      <a href class="facebook-link" @click.prevent="facebookLink"><span class="fa fa-facebook-official" aria-hidden="true"></span><span class="facebook-login">페이스북으로 로그인</span></a>
+      <a href class="facebook-link" @click.prevent="checkLoginState"><span class="fa fa-facebook-official" aria-hidden="true"></span><span class="facebook-login">페이스북으로 로그인</span></a>
     </div>
     
   </div>
 </template>
   
 <script>
+import FBActions from '../../utils/FBActions.js';
 
 export default {
   data() {
@@ -127,8 +128,8 @@ export default {
         target.classList.remove('agreement');
       }
     },
-    facebookLink() {
-      this.$router.push({path: '/'});
+    checkLoginState(){
+      FBActions.checkLoginState();
     },
     signinLink() {
       this.$router.push({path: '/signin'})
