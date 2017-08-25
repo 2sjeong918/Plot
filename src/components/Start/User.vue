@@ -149,10 +149,11 @@ export default {
   .dim
     width: 100%
     height: 150%
-    background: rgba(10,10,10,.45)
-    padding-top: leading(4)
+    background: radial-gradient(ellipse at center, #191919, rgba(25,25,25,0)35%, rgba(25,25,25,0.7))
+    padding-top: 7%
     animation-duration: 0.8s
     animation-delay: 1.2s
+    
     
   .container
     +container(1190px 12)

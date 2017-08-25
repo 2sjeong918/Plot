@@ -27,8 +27,7 @@ export default {
     window.onscroll = () => { 
       if(!this.scrollBg && (window.scrollY > navHeight)){
         this.scrollBg = {
-                        backgroundImage: '',
-                        background: '#E5E5E5'
+                          background: '#E5E5E5',
                         };
         this.isScroll = {
                           backgroundImage: 'url(./src/assets/images/bg_img.png)',
