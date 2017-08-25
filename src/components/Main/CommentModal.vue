@@ -1,29 +1,25 @@
 <template>
-  <transition transition appear
-      name="scale"
-      mode="out-in">
-    <div class="modal">
-      <div class="modal-background" @click.self="closeModal">
-        <div class="modal-content">
-          <div class="comment-header">
-            <h2 class="display-heading">{{displayHeading}}</h2>
-            <button class="modal-close" @click="closeModal">
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
+  <div class="modal">
+    <div class="modal-background" @click.self="closeModal">
+      <div class="modal-content">
+        <div class="comment-header">
+          <h2 class="display-heading">{{displayHeading}}</h2>
+          <button class="modal-close" @click="closeModal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="comment-body">
+          <div class="display-poster">
+            <img :src="displayPoster">
           </div>
-          <div class="comment-body">
-            <div class="display-poster">
-              <img :src="displayPoster">
-            </div>
-            <textarea ref="comment" v-model.lazy="comment" class="display-comment" placeholder="이 전시에 대한 생각을 자유롭게 적어주세요"></textarea>
-          </div>
-          <div class="comment-footer">
-            <button class="save-comment" @click="saveComment($event)">후기 등록</button>
-          </div>
+          <textarea ref="comment" v-model.lazy="comment" class="display-comment" placeholder="이 전시에 대한 생각을 자유롭게 적어주세요"></textarea>
+        </div>
+        <div class="comment-footer">
+          <button class="save-comment" @click="saveComment($event)">후기 등록</button>
         </div>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
   
 <script>
