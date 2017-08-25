@@ -123,9 +123,11 @@ export default {
   .text-sub
     margin-top: 10% 
     text-align: right
-    width: 50%
+    width: 60%
     position: absolute
     right: 10%
+    word-break: keep-all
+    
     
     span
       display: block
