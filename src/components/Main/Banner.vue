@@ -3,8 +3,7 @@
     <banner-carousel>
       <banner-carousel-item class="carousel-item" v-for="(item,index) in rankingList":index="index" :key="index" >
         <img :src="item.thumbnail_img[0]" :alt="item.alt" class="cover">
-        
-      </banner-carousel-item>
+        </banner-carousel-item>
     </banner-carousel>
   </div>
 </template>
@@ -39,15 +38,6 @@ export default {
 
 <style lang="sass" scoped>
   @import "~config"
-
-  // html 
-  //   font-size: 10px
-  //   background: #fff
-  //   // box-sizing: border-box
-  //   +global-box-sizing(border-box)
-  // body
-  //   margin: 0
-  //   font-size: 1.6rem
 
   #banner
     // +container(1190px 12)
