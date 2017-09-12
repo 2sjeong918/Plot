@@ -27,21 +27,21 @@ const routes = [
       children:[
         { path: '/', component: User,
           children:[
-            { path: '/', component: Start,name: 'start',},
+            { path: '', component: Start,name: 'start',},
             { path: '/signin', component: SignIn },
             { path: '/signup', component: SignUp },
           ]
         },
         { path: '/home', component: Home,
           children:[
-            {  path: '/home', component: Main },
-            {  path: '/detail/:Id', name: 'detail', component: Detail, props: true},
-            {  path: '/search', component: Search },
+            {  path: '', component: Main },
+            {  path: 'detail/:Id', name: 'detail', component: Detail, props: true},
+            {  path: 'search', component: Search },
             {  path: '/mypage', component: Mypage, 
               children:[
-                {  path: '/mypage', component: Wishlist },
-                {  path: '/mypage/display', component: Display },
-                {  path: '/mypage/comments', component: Comments }
+                {  path: '', component: Wishlist },
+                {  path: 'display', component: Display },
+                {  path: 'comments', component: Comments }
               ]
             },
           ]
