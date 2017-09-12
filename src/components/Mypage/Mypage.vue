@@ -44,13 +44,15 @@
 </template>
 
 <script>
+import Display from './Display';
+import Comments from './Comments';
 export default {
-  
   data() {
      return {
     }
   },
   components: {
+    Display, Comments
   },
   computed: {
     userInfo: function () {

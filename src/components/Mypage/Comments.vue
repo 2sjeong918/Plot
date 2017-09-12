@@ -2,40 +2,48 @@
   <div class="container">
     <ul class="cg-items container">
       <li :key="index" v-for="(data, index) in commentList">
-        <img  :src="(displayList[data.id].poster_img)" alt="전시 포스터 이미지">
-        <div class="action-wrapper">
-          <router-link :to="{ name: 'detail', params: { Id: data.id }}" tag="a" class="detail-link"></router-link>
-          <div class="action-info">
-            <div class="display-title">{{displayList[data.id].title}}</div>
-            <div class="rating">
-              <i class="fa fa-star rating-number1" aria-hidden="true"
-                @mouseenter="mouseEnter(index, 1)">
-              </i>
-              <i class="fa fa-star rating-number2" aria-hidden="true"
-                @mouseenter="mouseEnter(index, 2)">
-              </i>
-              <i class="fa fa-star rating-number3" aria-hidden="true"
-                @mouseenter="mouseEnter(index, 3)">
-              </i>
-              <i class="fa fa-star rating-number4" aria-hidden="true"
-                @mouseenter="mouseEnter(index, 4)">
-              </i>
-              <i class="fa fa-star rating-number5" aria-hidden="true"
-                @mouseenter="mouseEnter(index, 5)">
-              </i>
-            </div>
-            <div class="wish-comment">
-              <div class="wish">
-                <i class="fa fa-heart" aria-hidden="true" :class="{'active': index === isActive}"></i>
-                <a href="" @click.prevent="wishCount(index, $event)" :class="{'active': index === isActive}">보고싶어요</a>
+        <div class="display-info">
+          <img  :src="(displayList[data.id].poster_img)" alt="전시 포스터 이미지">
+          <div class="action-wrapper">
+            <router-link :to="{ name: 'detail', params: { Id: data.id }}" tag="a" class="detail-link"></router-link>
+            <div class="action-info">
+              <div class="display-title">{{displayList[data.id].title}}</div>
+              <div class="rating">
+                <i class="fa fa-star rating-number1" aria-hidden="true"
+                  @mouseenter="mouseEnter(index, 1)">
+                </i>
+                <i class="fa fa-star rating-number2" aria-hidden="true"
+                  @mouseenter="mouseEnter(index, 2)">
+                </i>
+                <i class="fa fa-star rating-number3" aria-hidden="true"
+                  @mouseenter="mouseEnter(index, 3)">
+                </i>
+                <i class="fa fa-star rating-number4" aria-hidden="true"
+                  @mouseenter="mouseEnter(index, 4)">
+                </i>
+                <i class="fa fa-star rating-number5" aria-hidden="true"
+                  @mouseenter="mouseEnter(index, 5)">
+                </i>
               </div>
-              <div class="comment">
-                <i class="fa fa-comment" aria-hidden="true"></i>
-                <a href="#">코멘트쓰기</a>
+              <div class="wish-comment">
+                <div class="wish">
+                  <i class="fa fa-heart" aria-hidden="true" :class="{'active': index === isActive}"></i>
+                  <a href="" @click.prevent="wishCount(index, $event)" :class="{'active': index === isActive}">보고싶어요</a>
+                </div>
+                <div class="comment">
+                  <i class="fa fa-comment" aria-hidden="true"></i>
+                  <a href="#">코멘트쓰기</a>
+                </div>
+                <!-- <comment-modal v-if="commentModal===data.id"></comment-modal> -->
               </div>
-              <!-- <comment-modal v-if="commentModal===data.id"></comment-modal> -->
             </div>
           </div>
+        </div>
+        <div class="comment-area">
+          <ul>
+            <li class="comment-title">{{displayList[data.id].title}}</li>
+            <li class="comment-text">{{data.comment}}</li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -66,16 +74,21 @@ export default {
     display: none
   
   .cg-items
-    +span(8 of 8 nest)
     margin-bottom: leading(2)
-    li
-      +span(2 of 8)
-      background: #1e0b65
+    +span(8 of 8 nest)
+    > li
+      +span(4 of 8)
+      // border: 3px solid #1e0b65
+      border-radius: 10px
       margin-top: leading(2)
+      display: flex
+    .display-info
+      +span(2 of 4 nest)
+      background: #1e0b65
       position: relative
       overflow: hidden
-      padding-top: 32%
-      border-radius: 3px
+      padding-top: 65%
+      border-radius: 10px 0 0 10px
       &:hover .action-wrapper
         opacity: 1
       img
@@ -85,6 +98,30 @@ export default {
         top: 0
         left: 50%
         transform: translateX(-50%)
+    .comment-area
+      +span(2 of 4 nest)
+      // padding: 10px
+      // border: 3px solid #999
+      border-radius: 0 10px 10px 0
+      background: #fff
+      line-height: leading(1)
+      text-align: left
+      padding: 10px
+      color: #403f4e
+    .comment-title
+      font-weight: bold
+    .comment-text
+      font-size: 1.4rem
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: wrap
+      // width: 100px
+      height: leading(3)
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
+      
+
   .action-wrapper
     position: absolute
     bottom: 0
