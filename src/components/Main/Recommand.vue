@@ -1,7 +1,7 @@
 <template>
   <div id="recommand" class="recommand">
     <ul class="rc-items container" :style="moveItem">
-      <li class="rc-item1":key="index" v-for="(data, index) in recommandList" >
+      <li class="rc-item1" :key="index" v-for="(data, index) in recommandList" >
         <img  :src="data.thumbnail_img[0]" alt="전시 포스터 이미지">
       </li>
     </ul>

@@ -36,7 +36,7 @@ const routes = [
           children:[
             {  path: '', component: Main },
             {  path: 'detail/:Id', name: 'detail', component: Detail, props: true},
-            {  path: 'search', component: Search },
+            {  path: '/search', component: Search },
             {  path: '/mypage', component: Mypage, 
               children:[
                 {  path: '', component: Wishlist },

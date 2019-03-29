@@ -29,7 +29,6 @@
                   :class= "{ active: isActive }"
                   v-model="keyword" 
                   @input="search({keyword},$event)"
-                  :value="search"
                   @blur="closeSearch"
                   @keyup.enter="gotoSearch"
                   autofocus>
